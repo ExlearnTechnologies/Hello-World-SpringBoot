@@ -4,21 +4,23 @@ pipeline {
         maven "Maven3"
     }
     stages {
-        stage('Compile') { 
+        stage('clone') { 
             steps {
                 git 'https://github.com/ExlearnTechnologies/Hello-World-SpringBoot.git'
+            }
+        }
+        stage('Compile') { 
+            steps {
                 sh 'mvn compile'
             }
         }
         stage('Test') { 
             steps {
-                git 'https://github.com/ExlearnTechnologies/Hello-World-SpringBoot.git'
                 sh 'mvn test'
             }
         }
         stage('Package') { 
             steps {
-                git 'https://github.com/ExlearnTechnologies/Hello-World-SpringBoot.git'
                 sh 'mvn package'
             }
         }
